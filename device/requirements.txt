@@ -1,0 +1,7 @@
+websockets>=12.0
+sounddevice>=0.4.6
+numpy>=1.24
+PyYAML>=6.0
+gpiozero>=2.0
+# Na Raspberry Pi do płynnego PWM serwa zalecane:
+# pigpio          # (uruchom: sudo pigpiod) — backend gpiozero=PiGPIOFactory

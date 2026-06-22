@@ -1,0 +1,33 @@
+# Konfiguracja agenta urządzenia (na czas developmentu).
+# W produkcie WiFi i device_token ustawia aplikacja przez parowanie (BLE).
+
+# Adres backendu (WSS w produkcji!)
+backend_url: "ws://192.168.1.100:8080/v1/device/ws"
+
+# Token urządzenia (dev: dowolny identyfikator = device_id).
+device_token: "dev_demo"
+
+# Audio (PCM16 mono). Musi zgadzać się z AUDIO_SAMPLE_RATE backendu.
+sample_rate: 16000
+frame_ms: 20
+
+# Tryb wejścia:
+#   push_to_talk: true  -> nagrywanie tylko gdy wciśnięty przycisk
+#   push_to_talk: false -> (placeholder) wykrywanie mowy / wake-word
+push_to_talk: true
+
+# Piny GPIO (BCM)
+pins:
+  button: 16
+  led: 13
+  servo: 12
+
+# Ruch buzi
+mouth:
+  closed_value: -0.6   # pozycja serwa dla zamkniętej buzi (-1..1)
+  open_value: 0.6      # pozycja serwa dla otwartej buzi (-1..1)
+  sensitivity: 4.0     # wzmocnienie reakcji na głośność
+
+# Głośność odtwarzania (0..1) — ograniczenie dla ochrony słuchu (EN 71)
+volume: 0.8
+max_volume: 0.9

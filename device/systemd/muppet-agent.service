@@ -1,0 +1,17 @@
+[Unit]
+Description=Muppet AI device agent
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/muppet/device
+ExecStart=/home/pi/muppet/device/.venv/bin/python -m muppet_agent.main --config /home/pi/muppet/device/config.yaml
+Restart=always
+RestartSec=3
+# pigpio (płynne PWM serwa) — odkomentuj, jeśli używasz:
+# Environment=GPIOZERO_PIN_FACTORY=pigpio
+
+[Install]
+WantedBy=multi-user.target
