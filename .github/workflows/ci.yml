@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  python-and-data:
+    name: Python + dane (JSON/YAML)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Kompilacja Pythona (backend + agent urządzenia)
+        run: |
+          python -m py_compile $(git ls-files 'backend/**/*.py' 'device/**/*.py')
+
+      - name: Walidacja presetów JSON
+        run: |
+          python - <<'PY'
+          import glob, json, sys
+          ok = True
+          for f in glob.glob("backend/presets/*.json"):
+              try:
+                  json.load(open(f, encoding="utf-8"))
+                  print("OK", f)
+              except Exception as e:  # noqa
+                  ok = False
+                  print("BŁĄD", f, e)
+          sys.exit(0 if ok else 1)
+          PY
+
+      - name: Walidacja YAML (konfiguracja urządzenia)
+        run: |
+          pip install pyyaml
+          python - <<'PY'
+          import glob, sys, yaml
+          ok = True
+          for f in glob.glob("device/*.yaml") + glob.glob("device/**/*.yaml", recursive=True):
+              try:
+                  yaml.safe_load(open(f, encoding="utf-8"))
+                  print("OK", f)
+              except Exception as e:  # noqa
+                  ok = False
+                  print("BŁĄD", f, e)
+          sys.exit(0 if ok else 1)
+          PY
+
+  typescript:
+    name: TypeScript (aplikacja, advisory)
+    runs-on: ubuntu-latest
+    continue-on-error: true   # doradczo — nie blokuje PR, dopóki app nie jest sfinalizowana
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Instalacja zależności aplikacji
+        working-directory: app
+        run: npm install --no-audit --no-fund
+      - name: Sprawdzenie typów
+        working-directory: app
+        run: npx tsc --noEmit
