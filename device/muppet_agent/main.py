@@ -25,6 +25,7 @@ import websockets
 
 from .audio import AudioIO
 from .mouth import Mouth, StatusLed
+from .provisioning import needs_provisioning, run_provisioning
 
 
 class Agent:
@@ -165,11 +166,22 @@ def load_config(path: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Agent urządzenia Muppet AI")
     parser.add_argument("--config", default="config.yaml")
+    parser.add_argument(
+        "--provision",
+        action="store_true",
+        help="Wymuś tryb parowania (BLE) niezależnie od konfiguracji",
+    )
     args = parser.parse_args()
 
     config = load_config(args.config)
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
+
+    # Parowanie (BLE): gdy brak realnego device_token lub wymuszone flagą.
+    prov_enabled = config.get("provisioning", {}).get("enabled", True)
+    if prov_enabled and (args.provision or needs_provisioning(config)):
+        config = loop.run_until_complete(run_provisioning(config, args.config))
+
     agent = Agent(config)
 
     for sig in (signal.SIGINT, signal.SIGTERM):

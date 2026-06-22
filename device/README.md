@@ -39,10 +39,24 @@ i [`docs/04-montaz-i-uruchomienie.md`](../docs/04-montaz-i-uruchomienie.md).
 - `push_to_talk: false` — miejsce na wake-word / VAD (do rozbudowy). Dla dzieci
   rekomendowane jest jednak push-to-talk + wyraźna dioda nasłuchu.
 
-## Parowanie i WiFi (produkcja)
+## Parowanie i WiFi (BLE provisioning)
 
-W gotowym produkcie WiFi i `device_token` ustawia aplikacja przez **BLE
-provisioning** (patrz [`docs/06-aplikacja-mobilna.md`](../docs/06-aplikacja-mobilna.md)).
-Komponent BLE na urządzeniu (rozgłaszanie usługi GATT, odbiór SSID/hasła/tokenu,
-zapis do `config.yaml` i rejestracja w backendzie) jest do dodania w
-`muppet_agent/provisioning.py` — szkielet protokołu opisano w dokumentacji.
+Zaimplementowane w [`muppet_agent/provisioning.py`](muppet_agent/provisioning.py)
+(serwer GATT na BlueZ przez bibliotekę `bless`). Gdy `device_token` jest pusty lub
+równy `dev_demo`, agent **automatycznie wchodzi w tryb parowania** przy starcie
+(można też wymusić flagą `--provision`).
+
+Przepływ:
+1. Urządzenie rozgłasza usługę GATT (`Muppet-Setup`) z charakterystykami:
+   `wifi_ssid`, `wifi_pass`, `enroll_token` (write), `command` (write, `commit`),
+   `status` (read/notify).
+2. Aplikacja zapisuje dane sieci + `enroll_token`, następnie `command="commit"`.
+3. Urządzenie łączy WiFi (`nmcli`), wymienia `enroll_token` → `device_token`
+   (REST `POST /v1/devices/enroll`), zapisuje `config.yaml`, zgłasza `online`.
+4. Tryb parowania kończy się, agent przechodzi do normalnej pracy.
+
+UUID-y i kontrakt: [`docs/06-aplikacja-mobilna.md`](../docs/06-aplikacja-mobilna.md).
+Wymaga BlueZ; poza Pi (dev) moduł grzecznie pomija parowanie.
+
+> Uwaga produkcyjna: hasło WiFi i token przesyłaj po **zaszyfrowanym** połączeniu
+> BLE (parowanie/bonding), a `enroll_token` traktuj jako jednorazowy i krótkożyciowy.

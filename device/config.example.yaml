@@ -4,8 +4,18 @@
 # Adres backendu (WSS w produkcji!)
 backend_url: "ws://192.168.1.100:8080/v1/device/ws"
 
-# Token urządzenia (dev: dowolny identyfikator = device_id).
+# Bazowy URL HTTP API (do rejestracji urządzenia podczas parowania).
+# Jeśli pusty, zostanie wyprowadzony z backend_url (ws->http, .../v1).
+api_base_url: "http://192.168.1.100:8080/v1"
+
+# Token urządzenia. Wartości "" / "dev_demo" oznaczają „niesparowane" i
+# uruchamiają tryb parowania (BLE). Po parowaniu zapisywany jest realny token.
 device_token: "dev_demo"
+
+# Parowanie przez BLE (provisioning WiFi z aplikacji)
+provisioning:
+  enabled: true
+  service_name: "Muppet-Setup"
 
 # Audio (PCM16 mono). Musi zgadzać się z AUDIO_SAMPLE_RATE backendu.
 sample_rate: 16000
