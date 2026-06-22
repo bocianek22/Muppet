@@ -1,0 +1,29 @@
+# Sekrety
+.env
+backend/.env
+device/config.yaml
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Node / Expo (aplikacja mobilna)
+node_modules/
+.expo/
+dist/
+*.log
+
+# PlatformIO (wariant ESP32, opcjonalny)
+.pio/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store

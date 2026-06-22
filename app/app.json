@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Muppet AI",
+    "slug": "muppet-ai",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": { "supportsTablet": true, "bundleIdentifier": "ai.muppet.app" },
+    "android": { "package": "ai.muppet.app" },
+    "plugins": []
+  }
+}

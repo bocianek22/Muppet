@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muppet AI — lista zakupów</title>
+<style>
+  :root{
+    --bg:#0f1216; --card:#1a1f27; --card2:#222936; --text:#e9edf2; --muted:#9aa6b2;
+    --accent:#0a84ff; --accent2:#2ecc71; --chip:#2a3340; --border:#2c3440;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.5;padding:16px;-webkit-text-size-adjust:100%}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+  h2{font-size:17px;margin:24px 0 10px;border-left:4px solid var(--accent);padding-left:8px}
+  .note{background:var(--card2);border:1px solid var(--border);border-radius:10px;
+        padding:10px 12px;font-size:13px;color:var(--muted);margin:10px 0}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;
+        padding:12px 14px;margin-bottom:12px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .name{font-weight:700;font-size:16px}
+  .price{color:var(--accent2);font-weight:600;font-size:14px;white-space:nowrap}
+  .meta{color:var(--muted);font-size:12px;margin:2px 0 10px}
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  a.btn{display:inline-block;background:var(--chip);color:var(--text);text-decoration:none;
+        padding:9px 12px;border-radius:10px;font-size:13px;border:1px solid var(--border)}
+  a.btn:active{background:var(--accent);border-color:var(--accent)}
+  .total{background:var(--card2);border:1px solid var(--border);border-radius:12px;
+         padding:12px 14px;font-size:15px;margin:14px 0}
+  footer{color:var(--muted);font-size:12px;margin-top:24px;text-align:center}
+  .tag{display:inline-block;background:#1f2a1f;color:#8fe0a3;border:1px solid #2f4a32;
+       border-radius:8px;font-size:11px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<h1>🧸 Muppet AI — lista zakupów</h1>
+<p class="sub">Wariant prototyp: Raspberry Pi Zero 2 W. Stuknij sklep, by wyszukać część.</p>
+
+<div class="note">Linki to <b>wyszukiwarki</b> sklepów (stabilne — pojedyncze oferty wygasają).
+Wybierz ofertę z dobrymi opiniami. Pi nie jest klonowane — kupuj u zaufanych sprzedawców/dystrybutorów.</div>
+
+<h2>Elektronika — prototyp</h2>
+
+<div class="card">
+  <div class="row"><span class="name">Raspberry Pi Zero 2 W</span><span class="price">$15–25</span></div>
+  <div class="meta">1 szt. · serce urządzenia (wersja „WH" = z wlutowanymi pinami)</div>
+  <div class="links">
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=raspberry+pi+zero+2+w">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=raspberry%20pi%20zero%202%20w">Botland</a>
+    <a class="btn" href="https://kamami.pl/szukaj?s=raspberry%20pi%20zero%202%20w">Kamami</a>
+    <a class="btn" href="https://www.tme.eu/en/katalog/?search=raspberry%20pi%20zero%202%20w">TME</a>
+    <a class="btn" href="https://thepihut.com/search?q=raspberry%20pi%20zero%202%20w">Pi Hut</a>
+    <a class="btn" href="https://shop.pimoroni.com/search?q=raspberry%20pi%20zero%202%20w">Pimoroni</a>
+    <a class="btn" href="https://rpilocator.com/">dostępność</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Karta microSD 32GB A1</span><span class="price">$4–7</span></div>
+  <div class="meta">1 szt. · SanDisk / Samsung</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-sandisk-microsd-32gb-a1.html">AliExpress</a>
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=microsd+32gb+a1">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=microsd%2032gb">Botland</a>
+    <a class="btn" href="https://www.tme.eu/en/katalog/?search=microsd%2032gb">TME</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Mikrofon I2S — INMP441</span><span class="price">$2–4</span></div>
+  <div class="meta">1 szt. · cyfrowy mikrofon MEMS (moduł)</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-INMP441.html">AliExpress</a>
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=INMP441">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=INMP441">Botland</a>
+    <a class="btn" href="https://kamami.pl/szukaj?s=INMP441">Kamami</a>
+    <a class="btn" href="https://www.adafruit.com/search?q=i2s%20microphone">Adafruit</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Wzmacniacz I2S — MAX98357A</span><span class="price">$2–4</span></div>
+  <div class="meta">1 szt. · I2S → głośnik, klasa D 3W (moduł)</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-MAX98357A.html">AliExpress</a>
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=MAX98357A">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=MAX98357A">Botland</a>
+    <a class="btn" href="https://kamami.pl/szukaj?s=MAX98357A">Kamami</a>
+    <a class="btn" href="https://www.adafruit.com/search?q=MAX98357A">Adafruit</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Głośnik 4Ω 3W ~40mm</span><span class="price">$1–3</span></div>
+  <div class="meta">1 szt. · mały, do głowy maskotki</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-speaker-4ohm-3w-40mm.html">AliExpress</a>
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=4ohm+3w+speaker+40mm">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=g%C5%82o%C5%9Bnik%204ohm%203w">Botland</a>
+    <a class="btn" href="https://www.adafruit.com/search?q=speaker%204%20ohm%203w">Adafruit</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Serwo SG90 (micro 9g)</span><span class="price">$1–2</span></div>
+  <div class="meta">1 szt. · ruch buzi w rytm mowy</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-SG90-servo.html">AliExpress</a>
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=sg90+servo">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=SG90">Botland</a>
+    <a class="btn" href="https://kamami.pl/szukaj?s=SG90">Kamami</a>
+    <a class="btn" href="https://thepihut.com/search?q=sg90%20servo">Pi Hut</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Akumulator LiPo 1S 3.7V 2000mAh</span><span class="price">$5–8</span></div>
+  <div class="meta">1 szt. · <b>z układem ochrony (PCM)</b>, złącze JST. Do sprzedaży: cert. IEC 62133</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-lipo-3.7v-2000mah-jst.html">AliExpress</a>
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=lipo+3.7v+2000mah+protected">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=akumulator%20li-po%203.7v%202000mah">Botland</a>
+    <a class="btn" href="https://www.adafruit.com/search?q=lithium%20ion%20polymer%20battery">Adafruit</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Moduł ładowarka 1S + boost 5V</span><span class="price">$2–4</span></div>
+  <div class="meta">1 szt. · gotowy „power-bank" USB-C (ładowanie + boost 5V + ochrona)</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-5v-boost-charger-module-power-bank.html">AliExpress</a>
+    <a class="btn" href="https://www.ebay.com/sch/i.html?_nkw=5v+boost+charger+module+power+bank">eBay</a>
+    <a class="btn" href="https://botland.store/search?s=przetwornica%20step-up%205v">Botland</a>
+    <a class="btn" href="https://www.adafruit.com/search?q=powerboost">Adafruit</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Alternatywa zasilania: TP4056 + MT3608</span><span class="price">$1–2</span></div>
+  <div class="meta">tańsza, ale więcej lutowania (ładowarka 1S + przetwornica 5V)</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-TP4056.html">TP4056 · Ali</a>
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-MT3608.html">MT3608 · Ali</a>
+    <a class="btn" href="https://botland.store/search?s=TP4056">TP4056 · Botland</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Przycisk (taktowy 12mm / dotykowy TTP223)</span><span class="price">$0.3–1</span></div>
+  <div class="meta">1 szt. · push-to-talk / włącznik</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-TTP223.html">TTP223 · Ali</a>
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-tactile-button-12mm.html">taktowy · Ali</a>
+    <a class="btn" href="https://botland.store/search?s=TTP223">Botland</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">LED WS2812 (1 piksel / NeoPixel)</span><span class="price">$0.3–1</span></div>
+  <div class="meta">1 szt. · sygnalizacja stanu (nasłuch / myślenie / mówienie)</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-ws2812-module.html">AliExpress</a>
+    <a class="btn" href="https://botland.store/search?s=WS2812">Botland</a>
+    <a class="btn" href="https://www.adafruit.com/search?q=neopixel">Adafruit (NeoPixel)</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Przewody Dupont (Ž-Ž) + kondensator 1000µF</span><span class="price">$1–3</span></div>
+  <div class="meta">połączenia + filtr dla serwa</div>
+  <div class="links">
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-dupont-wires-female-female.html">Dupont · Ali</a>
+    <a class="btn" href="https://www.aliexpress.com/w/wholesale-1000uf-electrolytic-capacitor.html">Kondensator · Ali</a>
+    <a class="btn" href="https://botland.store/search?s=przewody%20%C5%BCe%C5%84sko-%C5%BCe%C5%84skie">Dupont · Botland</a>
+  </div>
+</div>
+
+<div class="total">💰 <b>Razem elektronika: ~$35–55</b> detalicznie (1 szt.). Przy kilku sztukach / hurcie — taniej.</div>
+
+<h2>Wariant produkcyjny — CM4 <span class="tag">skala</span></h2>
+<div class="note">Moduł CM4 + własna PCB. Części z certyfikatami i kartami katalogowymi od dystrybutorów globalnych.</div>
+
+<div class="card">
+  <div class="row"><span class="name">Raspberry Pi CM4 (Lite, WiFi)</span><span class="price">$25–35</span></div>
+  <div class="meta">moduł obliczeniowy, długa dostępność</div>
+  <div class="links">
+    <a class="btn" href="https://www.mouser.com/c/?q=raspberry%20pi%20compute%20module%204">Mouser</a>
+    <a class="btn" href="https://www.digikey.com/en/products/result?keywords=raspberry%20pi%20compute%20module%204">Digi-Key</a>
+    <a class="btn" href="https://thepihut.com/search?q=compute%20module%204">Pi Hut</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Kluczowe układy na PCB</span><span class="price">—</span></div>
+  <div class="meta">mikrofon ICS-43434 · wzm. MAX98357A · ładowarka BQ25895 · boost TPS61088 · złącza CM4 DF40</div>
+  <div class="links">
+    <a class="btn" href="https://www.mouser.com/c/?q=ICS-43434">Mic · Mouser</a>
+    <a class="btn" href="https://www.mouser.com/c/?q=MAX98357A">MAX98357A</a>
+    <a class="btn" href="https://www.mouser.com/c/?q=BQ25895">BQ25895</a>
+    <a class="btn" href="https://www.mouser.com/c/?q=TPS61088">TPS61088</a>
+    <a class="btn" href="https://www.mouser.com/c/?q=DF40C-100DS">DF40</a>
+    <a class="btn" href="https://www.digikey.com/en/products/result?keywords=lithium%20polymer%20battery">LiPo (cert.)</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row"><span class="name">Produkcja PCB</span><span class="price">—</span></div>
+  <div class="meta">własna płyta nośna CM4</div>
+  <div class="links">
+    <a class="btn" href="https://jlcpcb.com/">JLCPCB</a>
+    <a class="btn" href="https://www.pcbway.com/">PCBWay</a>
+  </div>
+</div>
+
+<div class="note">⚠️ Przed sprzedażą: zgodność CE / EN 71 / RED / RODO — patrz dokument
+„05-zgodnosc-CE-EN71" w repozytorium. Akumulator z ochroną i certyfikatem IEC 62133,
+komora na śrubę, brak małych części, limit głośności.</div>
+
+<footer>Muppet AI · lista zakupów (generowana automatycznie) · linki = wyszukiwania w sklepach</footer>
+
+</body>
+</html>
