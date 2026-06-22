@@ -75,8 +75,41 @@ kartami katalogowymi** (produkcja, audyt zgodności).
 > Dostępność Raspberry Pi sprawdzisz globalnie na
 > [rpilocator.com](https://rpilocator.com/).
 
-## Co dalej (wariant produkcyjny CM4)
+## Sklepy hobbystyczne (UE / UK / US)
 
-Przy serii przechodzi się na **Raspberry Pi CM4 + własną płytę nośną** (zasilanie,
-audio, ładowarka, złącza na jednej PCB). Szczegóły i koszty:
+Wygodne, gdy chcesz gotowe moduły „pod Raspberry Pi" z jednego koszyka.
+
+| Część | Pimoroni | The Pi Hut | Adafruit |
+|---|---|---|---|
+| Raspberry Pi Zero 2 W | [szukaj](https://shop.pimoroni.com/search?q=raspberry%20pi%20zero%202%20w) | [szukaj](https://thepihut.com/search?q=raspberry%20pi%20zero%202%20w) | [szukaj](https://www.adafruit.com/search?q=raspberry%20pi%20zero%202%20w) |
+| Mikrofon I2S (INMP441/SPH0645) | [szukaj](https://shop.pimoroni.com/search?q=i2s%20microphone) | [szukaj](https://thepihut.com/search?q=i2s%20microphone) | [szukaj](https://www.adafruit.com/search?q=i2s%20microphone) |
+| Wzmacniacz I2S MAX98357A | [szukaj](https://shop.pimoroni.com/search?q=MAX98357A) | [szukaj](https://thepihut.com/search?q=MAX98357A) | [szukaj](https://www.adafruit.com/search?q=MAX98357A) |
+| Głośnik 4Ω 3W | [szukaj](https://shop.pimoroni.com/search?q=speaker%204%20ohm) | [szukaj](https://thepihut.com/search?q=speaker%204%20ohm) | [szukaj](https://www.adafruit.com/search?q=speaker%204%20ohm%203w) |
+| Serwo SG90 | [szukaj](https://shop.pimoroni.com/search?q=micro%20servo) | [szukaj](https://thepihut.com/search?q=sg90%20servo) | [szukaj](https://www.adafruit.com/search?q=micro%20servo) |
+| Akumulator LiPo 1S | [szukaj](https://shop.pimoroni.com/search?q=lipo%20battery) | [szukaj](https://thepihut.com/search?q=lipo%20battery) | [szukaj](https://www.adafruit.com/search?q=lithium%20ion%20polymer%20battery) |
+| Ładowarka/boost (PowerBoost) | [szukaj](https://shop.pimoroni.com/search?q=powerboost) | [szukaj](https://thepihut.com/search?q=lipo%20charger%20boost) | [szukaj](https://www.adafruit.com/search?q=powerboost) |
+| LED WS2812 (NeoPixel) | [szukaj](https://shop.pimoroni.com/search?q=neopixel) | [szukaj](https://thepihut.com/search?q=neopixel) | [szukaj](https://www.adafruit.com/search?q=neopixel) |
+
+## Wariant produkcyjny CM4 — zakupy (Mouser / Digi-Key)
+
+Pod większą skalę: **moduł CM4 + własna płyta nośna** (zasilanie, audio, ładowarka,
+złącza na jednej PCB). Komponenty z certyfikatami i kartami katalogowymi bierz od
+dystrybutorów globalnych; PCB zleć w JLCPCB/PCBWay. Kontekst i koszty:
 [`docs/02-lista-czesci-BOM.md`](02-lista-czesci-BOM.md) §B.
+
+| Część | Po co | Mouser | Digi-Key |
+|---|---|---|---|
+| Raspberry Pi CM4 (Lite, WiFi) | moduł obliczeniowy | [szukaj](https://www.mouser.com/c/?q=raspberry%20pi%20compute%20module%204) | [szukaj](https://www.digikey.com/en/products/result?keywords=raspberry%20pi%20compute%20module%204) |
+| Złącza CM4 (2× Hirose DF40) | montaż CM4 na PCB | [szukaj](https://www.mouser.com/c/?q=DF40C-100DS) | [szukaj](https://www.digikey.com/en/products/result?keywords=DF40C-100DS) |
+| Mikrofon MEMS I2S ICS-43434 | mikrofon na PCB | [szukaj](https://www.mouser.com/c/?q=ICS-43434) | [szukaj](https://www.digikey.com/en/products/result?keywords=ICS-43434) |
+| Wzmacniacz I2S MAX98357A (IC) | audio na PCB | [szukaj](https://www.mouser.com/c/?q=MAX98357A) | [szukaj](https://www.digikey.com/en/products/result?keywords=MAX98357AETE%2BT) |
+| Ładowarka 1S BQ25895 | zarządzanie energią | [szukaj](https://www.mouser.com/c/?q=BQ25895) | [szukaj](https://www.digikey.com/en/products/result?keywords=BQ25895) |
+| Przetwornica step-up 5V (TPS61088) | szyna 5V | [szukaj](https://www.mouser.com/c/?q=TPS61088) | [szukaj](https://www.digikey.com/en/products/result?keywords=TPS61088) |
+| Ogniwo LiPo 1S (cert. IEC 62133) | akumulator | [szukaj](https://www.mouser.com/c/?q=lithium%20polymer%20battery%20IEC%2062133) | [szukaj](https://www.digikey.com/en/products/result?keywords=lithium%20polymer%20battery) |
+| Złącze USB-C (zasilanie) | ładowanie | [szukaj](https://www.mouser.com/c/?q=usb-c%20receptacle%20power) | [szukaj](https://www.digikey.com/en/products/result?keywords=usb-c%20receptacle) |
+| Serwo / głośnik / WS2812 / przycisk | mechanika + UI | jak w tabeli głównej / dystrybutorzy PL | — |
+
+> Pamiętaj o RED/EMC przy własnej PCB: użyj modułu CM4 z **certyfikowanym radiem**
+> i zaprojektuj layout RF wg dokumentacji — patrz
+> [`docs/05-zgodnosc-CE-EN71.md`](05-zgodnosc-CE-EN71.md) §3 i §5.
+> Produkcja PCB: [JLCPCB](https://jlcpcb.com/), [PCBWay](https://www.pcbway.com/).
