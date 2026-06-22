@@ -43,6 +43,38 @@ sztuk/hurtem realnie taniej.
   [szukaj](https://www.aliexpress.com/w/wholesale-respeaker-2-mic.html).
 - **Lutownica** potrzebna do goldpinów Pi i ewentualnie modułów audio.
 
+## Sklepy PL/UE (szybsza dostawa) i dystrybutorzy
+
+Linki to **wyszukiwarki** sklepów. Dystrybutorzy (TME/Botland/Kamami) mają zwykle
+oryginalne komponenty, faktury VAT i szybką wysyłkę w UE — wygodne do prototypu i
+serii. Mouser/Digi-Key/Farnell — gdy potrzebujesz **części z certyfikatami i
+kartami katalogowymi** (produkcja, audyt zgodności).
+
+| Część | TME | Botland | Kamami |
+|---|---|---|---|
+| Raspberry Pi Zero 2 W | [szukaj](https://www.tme.eu/en/katalog/?search=raspberry%20pi%20zero%202%20w) | [szukaj](https://botland.store/search?s=raspberry%20pi%20zero%202%20w) | [szukaj](https://kamami.pl/szukaj?s=raspberry%20pi%20zero%202%20w) |
+| microSD 32GB A1 | [szukaj](https://www.tme.eu/en/katalog/?search=microsd%2032gb) | [szukaj](https://botland.store/search?s=microsd%2032gb) | [szukaj](https://kamami.pl/szukaj?s=microsd%2032gb) |
+| INMP441 (mic I2S) | [szukaj](https://www.tme.eu/en/katalog/?search=INMP441) | [szukaj](https://botland.store/search?s=INMP441) | [szukaj](https://kamami.pl/szukaj?s=INMP441) |
+| MAX98357A (wzm. I2S) | [szukaj](https://www.tme.eu/en/katalog/?search=MAX98357A) | [szukaj](https://botland.store/search?s=MAX98357A) | [szukaj](https://kamami.pl/szukaj?s=MAX98357A) |
+| Głośnik 4Ω 3W | [szukaj](https://www.tme.eu/en/katalog/?search=loudspeaker%204ohm%203w) | [szukaj](https://botland.store/search?s=g%C5%82o%C5%9Bnik%204ohm%203w) | [szukaj](https://kamami.pl/szukaj?s=g%C5%82o%C5%9Bnik%204%20ohm) |
+| Serwo SG90 | [szukaj](https://www.tme.eu/en/katalog/?search=SG90) | [szukaj](https://botland.store/search?s=SG90) | [szukaj](https://kamami.pl/szukaj?s=SG90) |
+| Akumulator LiPo 1S 2000mAh | [szukaj](https://www.tme.eu/en/katalog/?search=akumulator%20li-po%203.7v%202000mah) | [szukaj](https://botland.store/search?s=akumulator%20li-po%203.7v%202000mah) | [szukaj](https://kamami.pl/szukaj?s=li-po%203.7v%202000mah) |
+| Ładowarka/boost 5V (TP4056/MT3608) | [TP4056](https://www.tme.eu/en/katalog/?search=TP4056) · [MT3608](https://www.tme.eu/en/katalog/?search=MT3608) | [TP4056](https://botland.store/search?s=TP4056) · [boost 5V](https://botland.store/search?s=przetwornica%20step-up%205v) | [TP4056](https://kamami.pl/szukaj?s=TP4056) |
+| Przycisk / TTP223 | [tact](https://www.tme.eu/en/katalog/?search=tact%20switch%2012mm) · [TTP223](https://www.tme.eu/en/katalog/?search=TTP223) | [TTP223](https://botland.store/search?s=TTP223) | [TTP223](https://kamami.pl/szukaj?s=TTP223) |
+| LED WS2812 | [szukaj](https://www.tme.eu/en/katalog/?search=WS2812) | [szukaj](https://botland.store/search?s=WS2812) | [szukaj](https://kamami.pl/szukaj?s=WS2812) |
+| Przewody Dupont Ž-Ž | [szukaj](https://www.tme.eu/en/katalog/?search=jumper%20wires%20female) | [szukaj](https://botland.store/search?s=przewody%20%C5%BCe%C5%84sko-%C5%Bce%C5%84skie) | [szukaj](https://kamami.pl/szukaj?s=przewody%20dupont) |
+| Kondensator 1000µF | [szukaj](https://www.tme.eu/en/katalog/?search=1000uf%2010v%20electrolytic) | [szukaj](https://botland.store/search?s=kondensator%201000uf) | [szukaj](https://kamami.pl/szukaj?s=kondensator%201000uf) |
+
+> **Dystrybutorzy globalni (produkcja/certyfikacja):**
+> [Mouser](https://www.mouser.com/), [Digi-Key](https://www.digikey.com/),
+> [Farnell/element14](https://www.farnell.com/). Tam kupisz ogniwa LiPo z
+> certyfikatem IEC 62133, układy ładowania (np. BQ25895), codeki audio i
+> komponenty z pełnymi kartami katalogowymi — pod wariant CM4 i audyt zgodności
+> ([`docs/05-zgodnosc-CE-EN71.md`](05-zgodnosc-CE-EN71.md)).
+
+> Dostępność Raspberry Pi sprawdzisz globalnie na
+> [rpilocator.com](https://rpilocator.com/).
+
 ## Co dalej (wariant produkcyjny CM4)
 
 Przy serii przechodzi się na **Raspberry Pi CM4 + własną płytę nośną** (zasilanie,
